@@ -7,11 +7,13 @@ import org.springframework.stereotype.Component;
 @Primary
 public class BubbleSortAlgorithm implements SortAlgorithm{
 
+	// Logic for Bubble Sort
 	public int[] sort(int[] numbers) {
-		displayData(numbers);
-		// Logic for Bubble Sort
+		
 		// Outer Loop - Controls the number of (successively small) passes through the array
 		for (int i = 1; i < numbers.length-1; i++) {
+			displayData(numbers);
+			
 			//Inner Loop - Controls the pairs of adjacent entries being compared
 			for (int j = 0; j < numbers.length - i; j++) {
 				if(numbers[j] > numbers[j+1]) {
@@ -20,12 +22,12 @@ public class BubbleSortAlgorithm implements SortAlgorithm{
 					numbers[j+1] = temp;
 				}
 			}
-			displayData(numbers);
 		}
 		
 		return numbers;
 	}
 	
+	//Displays the list of numbers for debugging purposes
 	public void displayData(int[] numbers) {
 		System.out.println("----------");
 		for (int x = 0; x < numbers.length; x++) {
