@@ -12,7 +12,7 @@ public class BubbleSortAlgorithm implements SortAlgorithm{
 		
 		// Outer Loop - Controls the number of (successively small) passes through the array
 		for (int i = 1; i < numbers.length-1; i++) {
-			displayData(numbers);
+			//displayData(numbers);
 			
 			//Inner Loop - Controls the pairs of adjacent entries being compared
 			for (int j = 0; j < numbers.length - i; j++) {
