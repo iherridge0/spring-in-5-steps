@@ -1,7 +1,12 @@
 package za.co.ieh.spring.basics.springin5steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BinarySearchImpl {
 
+	@Autowired
 	private SortAlgorithm sortAlgorithm;
 	
 	// Bubble Sort Algorithm OR Quick Sort Algorithm OR any other sorting algorithm that is implemented.
