@@ -1,4 +1,4 @@
-package za.co.ieh.spring.basics.springin5steps;
+package za.co.ieh.spring.basics.springin5steps.sort;
 
 import org.springframework.stereotype.Component;
 

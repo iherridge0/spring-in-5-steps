@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl;
+
 @SpringBootApplication
 public class SpringIn5StepsApplication {
 	
@@ -19,10 +21,8 @@ public class SpringIn5StepsApplication {
 		//Application Context
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringIn5StepsApplication.class, args);
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
-		int result = binarySearch.binarySearch(new int[] {12, 4, 6}, 3);
+		int result = binarySearch.binarySearch(new int[] {12, 4, 6, 45, 3, 45, 65, 33, 47, 2, 43, 5}, 3);
 		System.out.println(result);
-		
-		
 	}
 
 }

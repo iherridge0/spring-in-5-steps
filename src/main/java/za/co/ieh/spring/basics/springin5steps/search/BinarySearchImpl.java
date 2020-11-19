@@ -1,7 +1,9 @@
-package za.co.ieh.spring.basics.springin5steps;
+package za.co.ieh.spring.basics.springin5steps.search;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import za.co.ieh.spring.basics.springin5steps.sort.SortAlgorithm;
 
 @Component
 public class BinarySearchImpl {
