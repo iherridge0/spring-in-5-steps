@@ -21,7 +21,12 @@ public class BinarySearchImpl {
 	// Implementing Sorting Logic
 		
 		int[] sorted = sortAlgorithm.sort(numbers);
-		System.out.println(sortAlgorithm.toString());
+		System.out.println();
+		for (int i = 0; i < sorted.length; i++) {
+			System.out.print(sorted[i] + " ");
+		}
+		
+		//System.out.println(sortAlgorithm.toString());
 
 	//Search the array
 		
