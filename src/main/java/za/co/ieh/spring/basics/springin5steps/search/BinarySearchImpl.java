@@ -19,7 +19,10 @@ public class BinarySearchImpl {
 
 	public int binarySearch(int[] numbers, int numberToSearchFor) {
 	// Implementing Sorting Logic
-		
+		System.out.println();
+		for (int i = 0; i < numbers.length; i++) {
+			System.out.print(numbers[i] + " ");
+		}
 		int[] sorted = sortAlgorithm.sort(numbers);
 		System.out.println();
 		for (int i = 0; i < sorted.length; i++) {
