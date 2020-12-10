@@ -1,9 +1,9 @@
-package za.co.ieh.spring.basics.springin5steps.basic;
+package za.co.ieh.spring.basics.basic;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,8 +13,9 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-//@Primary
-@Qualifier("radix")
+@Primary
+//@Qualifier("radix")
+//@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class RadixBucketSort implements SortAlgorithm {
 	
 	@Override

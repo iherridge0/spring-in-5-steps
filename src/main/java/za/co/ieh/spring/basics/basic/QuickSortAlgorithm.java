@@ -1,4 +1,4 @@
-package za.co.ieh.spring.basics.springin5steps.basic;
+package za.co.ieh.spring.basics.basic;
 
 import java.util.Random;
 

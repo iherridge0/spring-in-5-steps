@@ -1,24 +1,30 @@
-package za.co.ieh.spring.basics.springin5steps.basic;
+package za.co.ieh.spring.basics.basic;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearchImpl {
+	
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	@Qualifier("radix")
+	@Inject //or @Autowired 
+	//@Qualifier("radix")
 	private SortAlgorithm sortAlgorithm;
 
 	public int binarySearch(int[] numbers, int numberToSearchFor) {
 		// Implementing Sorting Logic
-		viewArray(numbers);
+		//viewArray(numbers);
 		sortAlgorithm.sort(numbers);
-		viewArray(numbers);
+		//viewArray(numbers);
 		
 		//Search the array
 		
@@ -31,5 +37,15 @@ public class BinarySearchImpl {
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.print(numbers[i] + " ");
 		}
+	}
+	
+	@PostConstruct
+	public void postConstruct() {
+		log.info("{}", sortAlgorithm);
+	}
+	
+	@PreDestroy
+	public void preDestroy() {
+		log.info("{}", sortAlgorithm);
 	}
 }

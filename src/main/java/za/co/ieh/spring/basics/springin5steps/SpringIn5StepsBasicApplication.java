@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import za.co.ieh.spring.basics.springin5steps.basic.BinarySearchImpl;
+import za.co.ieh.spring.basics.basic.BinarySearchImpl;
 
 @SpringBootApplication
 public class SpringIn5StepsBasicApplication {
@@ -28,6 +28,7 @@ public class SpringIn5StepsBasicApplication {
 			BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
 			System.out.println(binarySearch);
 			System.out.println(binarySearch1);
+			
 		/**
 		 * Output: as can seen it is a single bean, same reference - singleton
 		 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@88d6f9b
@@ -53,7 +54,9 @@ public class SpringIn5StepsBasicApplication {
 			 */
 			
 			
-		int result = binarySearch.binarySearch(new int[] {12, 4, 6, 45, 3, 65, 33, 47, 2, 43, 5}, 3);
+		binarySearch.binarySearch(new int[] {12, 4, 6, 45, 3, 65, 33, 47, 2, 43, 5}, 3);
+		binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+		
 	}
 
 }
