@@ -1,7 +1,5 @@
 package za.co.ieh.spring.basics.springin5steps;
 
-import java.awt.List;
-
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
