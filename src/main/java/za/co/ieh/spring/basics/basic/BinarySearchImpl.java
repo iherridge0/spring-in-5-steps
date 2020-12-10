@@ -1,7 +1,5 @@
 package za.co.ieh.spring.basics.basic;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -39,13 +37,9 @@ public class BinarySearchImpl {
 		}
 	}
 	
-	@PostConstruct
-	public void postConstruct() {
-		log.info("{}", sortAlgorithm);
-	}
-	
-	@PreDestroy
-	public void preDestroy() {
-		log.info("{}", sortAlgorithm);
-	}
+	/*
+	 * @PostConstruct public void postConstruct() { log.info("{}", sortAlgorithm); }
+	 * 
+	 * @PreDestroy public void preDestroy() { log.info("{}", sortAlgorithm); }
+	 */
 }

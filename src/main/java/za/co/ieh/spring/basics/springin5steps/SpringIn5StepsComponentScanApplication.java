@@ -2,17 +2,17 @@ package za.co.ieh.spring.basics.springin5steps;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import za.co.ieh.spring.basics.basic.BubbleSortAlgorithm;
 import za.co.ieh.spring.basics.basic.SortAlgorithm;
 import za.co.ieh.spring.basics.componentscan.ComponentDAO;
 
-@SpringBootApplication
-@ComponentScan("za.co.ieh.spring.basics.componentscan")
+@Configuration
+@ComponentScan("za.co.ieh.spring.basics.springin5steps")
 @ComponentScan("za.co.ieh.spring.basics.basic")
 public class SpringIn5StepsComponentScanApplication {
 
@@ -20,20 +20,21 @@ public class SpringIn5StepsComponentScanApplication {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringIn5StepsComponentScanApplication.class, args);
-
-		ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
-	
-		LOGGER.info("{}", componentDAO);
-		
-		int[] numbers = {95,1,54,0,698,45,255,18948,151,48,356,18,2,9,4,58,6,14,5,56,4,9,9,5,5,56,5,691,19,9,126,6+45,65};
-		
-		SortAlgorithm sortAlgorithm = applicationContext.getBean(BubbleSortAlgorithm.class);
-		
-		sortAlgorithm.sort(numbers);
-		
-		for (int i = 0; i < numbers.length; i++) {
-			LOGGER.info(String.valueOf(numbers[i]));
+		try(ConfigurableApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class)){
+			ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
+			
+			LOGGER.info("{}", componentDAO);
+			
+			int[] numbers = {95,1,54,0,698,45,255,18948,151,48,356,18,2,9,4,58,6,14,5,56,4,9,9,5,5,56,5,691,19,9,126,6+45,65};
+			
+			SortAlgorithm sortAlgorithm = applicationContext.getBean(BubbleSortAlgorithm.class);
+			
+			sortAlgorithm.sort(numbers);
+			
+			for (int i = 0; i < numbers.length; i++) {
+				LOGGER.info(String.valueOf(numbers[i]));
+			}
 		}
 		
 	}

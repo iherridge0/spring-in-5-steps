@@ -1,12 +1,15 @@
 package za.co.ieh.spring.basics.springin5steps;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import za.co.ieh.spring.basics.basic.BinarySearchImpl;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan("za.co.ieh.spring.basics.springin5steps")
+@ComponentScan("za.co.ieh.spring.basics.basic")
 public class SpringIn5StepsBasicApplication {
 	
 	// What are the beans - Annotated with @Component
@@ -19,44 +22,49 @@ public class SpringIn5StepsBasicApplication {
 		//BinarySearchImpl binarySearch = new BinarySearchImpl(new QuickSortAlgorithm());
 		
 		//Application Context
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringIn5StepsBasicApplication.class, args);
-		
-		/**
-		 * Default - Singleton - One instance per Spring Context
-		 */
-			BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
-			BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
-			System.out.println(binarySearch);
-			System.out.println(binarySearch1);
-			
-		/**
-		 * Output: as can seen it is a single bean, same reference - singleton
-		 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@88d6f9b
-		 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@88d6f9b
-		 */
-			
+		try(ConfigurableApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class)) {
 			/**
-			 * 
-			 * @Component
-			 * @Scope("prototype")
-			 * public class BinarySearchImpl {
-			 * 
-			 * OR
-			 * 
-			 * @Component
-			 * @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-			 * public class BinarySearchImpl {
-			 * 
-			 * Output: as can seen a new instance is created for each bean - prototype
-			 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@58783f6c
-			 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@3a7b503d	
-			 *
+			 * Default - Singleton - One instance per Spring Context
 			 */
-			
-			
-		binarySearch.binarySearch(new int[] {12, 4, 6, 45, 3, 65, 33, 47, 2, 43, 5}, 3);
-		binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+				BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+				BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
+				System.out.println(binarySearch);
+				System.out.println(binarySearch1);
+				
+				
+			/**
+			 * Output: as can seen it is a single bean, same reference - singleton
+			 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@88d6f9b
+			 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@88d6f9b
+			 */
+				
+				/**
+				 * 
+				 * @Component
+				 * @Scope("prototype")
+				 * public class BinarySearchImpl {
+				 * 
+				 * OR
+				 * 
+				 * @Component
+				 * @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+				 * public class BinarySearchImpl {
+				 * 
+				 * Output: as can seen a new instance is created for each bean - prototype
+				 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@58783f6c
+				 * za.co.ieh.spring.basics.springin5steps.search.BinarySearchImpl@3a7b503d	
+				 *
+				 */
+				
+				
+			binarySearch.binarySearch(new int[] {12, 4, 6, 45, 3, 65, 33, 47, 2, 43, 5}, 3);
+			binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+		}
+		
+		
 		
 	}
+		
 
 }
