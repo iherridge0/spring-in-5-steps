@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Radix sort, also known as Bucket Sort
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @author irwin
  *
  */
-@Component
+@Service
 @Primary
 //@Qualifier("radix")
 //@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)

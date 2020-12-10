@@ -1,8 +1,8 @@
 package za.co.ieh.spring.basics.basic;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class BubbleSortAlgorithm implements SortAlgorithm{
 
 	// Logic for Bubble Sort

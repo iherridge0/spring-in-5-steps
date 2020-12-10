@@ -2,9 +2,9 @@ package za.co.ieh.spring.basics.basic;
 
 import java.util.Random;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class QuickSortAlgorithm implements SortAlgorithm {
 
 	public int[] sort(int[] numbers) {
