@@ -1,9 +1,10 @@
-package za.co.ieh.spring.basics.springin5steps.sort;
+package za.co.ieh.spring.basics.springin5steps.basic;
 
-import org.springframework.context.annotation.Primary;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-import java.util.*;
 
 /**
  * Radix sort, also known as Bucket Sort
@@ -12,7 +13,8 @@ import java.util.*;
  *
  */
 @Component
-@Primary
+//@Primary
+@Qualifier("radix")
 public class RadixBucketSort implements SortAlgorithm {
 	
 	@Override

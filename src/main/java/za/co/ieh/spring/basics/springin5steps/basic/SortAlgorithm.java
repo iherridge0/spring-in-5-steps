@@ -1,4 +1,4 @@
-package za.co.ieh.spring.basics.springin5steps.sort;
+package za.co.ieh.spring.basics.springin5steps.basic;
 
 public interface SortAlgorithm {
 

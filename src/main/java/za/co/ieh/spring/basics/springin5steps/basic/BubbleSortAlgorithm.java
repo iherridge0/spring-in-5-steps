@@ -1,6 +1,5 @@
-package za.co.ieh.spring.basics.springin5steps.sort;
+package za.co.ieh.spring.basics.springin5steps.basic;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
