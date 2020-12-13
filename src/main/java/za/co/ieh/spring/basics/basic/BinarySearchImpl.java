@@ -20,9 +20,9 @@ public class BinarySearchImpl {
 
 	public int binarySearch(int[] numbers, int numberToSearchFor) {
 		// Implementing Sorting Logic
-		//viewArray(numbers);
+		viewArray(numbers);
 		sortAlgorithm.sort(numbers);
-		//viewArray(numbers);
+		viewArray(numbers);
 		
 		//Search the array
 		
